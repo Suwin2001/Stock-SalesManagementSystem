@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwin Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1 class="shine-text">P&P Global Holdings.</h1>
+    </header>
+    <nav>
+        <ul style="padding: 10px;">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#" onclick="refreshme()">Refresh</a></li>
+            
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2 class="currentmonthpre"></h2><br>
+            <div class="dateselection"></div><br>
+            <div class="tableheadertext">
+                <h2 class="empty"></h2>
+                <h2 class="todaydate"></h2>
+                <h2 class="dailytotal">Total : </h2></div>
+            
+            <table class="dailysales-table"> 
+                <thead>
+                    <tr>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Product Qty</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; SUWIN ANANTHA</p>
+    </footer>
+    
+<div id="checkoutPopup" class="checkout-popup" style="display:none;">
+    
+    <p id="errorMessage"></p>
+    <button onclick="closeCheckoutPopup()">OK</button>
+</div>
+  
+
+
+    
+    
+    <script src="cart.js"></script>
+    <script src="checkout_fun.js"></script>
+    <script src="dailysales.js"></script>
+</body>
+</html>

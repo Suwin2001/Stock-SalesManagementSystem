@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwin Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+</head>
+<body>
+    <header>
+        <h1 class="shine-text">P&P Global Holdings.</h1>
+    </header>
+    <nav>
+        <ul style="padding: 10px;">
+            <li><a href="#" onclick="openForm()">Add Product</a></li>
+            <li><a href="#" onclick="openRemoveForm()">Remove Product</a></li>
+            <li><a href="#" onclick="openUpdateForm()">Update Product</a></li>
+            <li><a href="#" onclick="openCart()">Cart</a></li>
+            <li><a href="dailysales.html">Daily Sales</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Product List:</h2>
+            <div class="search">
+                <input type="text" id="search-input" placeholder="Search by product name">
+                <button onclick="searchProduct()" id="btn_search">Search</button>
+                <button onclick="resetSearch()" id="btn_reset_search">Reset</button>
+            </div>
+            <br>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Product Qty</th>
+                        <th>Price</th>
+                        <th>Product Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; SUWIN ANANTHA</p>
+    </footer>
+    <form id="popupForm" class="popup-form" method="POST" action="add_product.php">
+        <div class="form-container">
+            <h2>Add Product</h2>
+            <label for="product-code">Product Code</label>
+            <input type="text" id="product-code" name="product_code" required>
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" name="product_name" required>
+            <label for="product-qty">Product Quantity</label>
+            <input type="number" id="product-qty" name="product_qty" required>
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" required>
+            <label for="product-location">Product Location</label>
+            <input type="text" id="product-location" name="product_location" required>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeForm()"  style="background-color: #dc3545;">Cancel</button>
+        </div>
+    </form>
+    <div id="removeProductForm" class="popup-form">
+        <div class="form-container">
+            <h2>Remove Product</h2>
+            <form id="remove-product-form" method="POST" action="remove_product.php">
+                <label for="remove-product-code">Product Code</label>
+                <input type="text" id="remove-product-code" name="product_code" required>
+                <button type="submit">Remove</button>
+                <button type="button" onclick="closeForm()"  style="background-color: #dc3545;">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- Update Product Form -->
+<div id="updateProductForm" class="popup-form">
+    <div class="form-container">
+        <h2>Update Product</h2>
+        <form id="update-product-form" method="POST" action="update_product.php">
+            <label for="update-product-code">Product Code</label>
+            <input type="text" id="update-product-code" name="product_code" required>
+            
+            <label for="update-product-qty">Product Quantity</label>
+            <input type="number" id="update-product-qty" name="product_qty" required>
+            
+            <label for="update-price">Price</label>
+            <input type="text" id="update-price" name="price" required>
+            
+            <button type="submit">Update</button>
+            <button type="button" onclick="closeForm()"  style="background-color: #dc3545;">Cancel</button>
+        </form>
+    </div>
+</div>
+<!-- Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button onclick="closeCart()" id="btn_cartX">X</button>
+    </div>
+    <div class="cart-content">
+        <!-- Cart items will be dynamically inserted here -->
+        <p>No items in the cart.</p>
+    </div>
+    <div class="cart-footer">
+        <button id="btn_checkout">Checkout</button>
+    </div>
+</div>
+<div id="checkoutPopup" class="checkout-popup" style="display:none;">
+    <p>Checkout Done</p>
+    <button onclick="closeCheckoutPopup()">OK</button>
+</div>
+
+
+
+    
+    <script src="tablescript.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout_fun.js"></script>
+</body>
+</html>
